@@ -1,64 +1,52 @@
-# Little Anti-Cheat.
+# Little Anti-Cheat - Development Notes:
 
-Little Anti-Cheat is a free and open source anti-cheat for source games, and runs on SourceMod.\
-It was originally developed for some secret servers I had back in the day.\
-But, as I quit cheating and quit having servers, I decided to release this project to help the community out.\
-This Anti-Cheat is by no means perfect, and it is bypassable to some extent, but it should still be a nice alternative (or just complementary) to SMAC (SourceMod Anti-Cheat).
+Alright, so there is one "small" problem I've created with this project.
+In the past... And actually, since always, I've used Github to host developmental code.
+I never intended for my github code to be seen as the stable release of anything.
+Especially not this project.
 
-### Current Cheat Detections:
- - Angle-Cheats (Legit Anti-Backstab (TF2), Basic Anti-Aims and Duckspeed).
- - Chat-Clear (When cheaters clear the chat).
- - Basic Invalid ConVar Detector (Checks if clients have sv_cheats turned on and such).
- - BunnyHop (Bhop).
- - Basic Projectile and Hitscan Aimbot.
- - Basic Aimlock.
+Sadly, I never made that clear.
+And up until now, I never used any other branch than "master"...
+Meaning there have been a lot of server owners (Especially Russians) now who have relied on my developmental, unofficial and unstable code to protect their servers against cheaters.
 
-### Misc features:
- - Angle-Cheats Patch (Patches Angle-Cheats from working).
- - Max Interp Kicker (Kicks players for attempting to exploit interp (cl_interp 0.5)).
- - Max Ping Kicker (Kicks players for having too high ping (Disabled by default)).
- - Backtrack Patch (Patches backtrack cheats (Disabled by default)).
+This... Is just a really unprofessional and terrible way of managing a project...
+And it has also made a mess of things. Because of this, the version 1.5.0 in the master branch isn't actually stable... Well, it is, but it isn't officially so.
+Not to forget, the precompiled binary isn't even updated to the latest official stable release, version 1.3.0.
 
-### Supported Games:
- - [TF2] Team Fortress 2
- - [CS:GO] Counter-Strike:Global Offensive
- - [L4D2] Left 4 Dead 2
- - [DoD:S] Day of Defeat: Source
+Going forward, this development branch is where I'll host recent, untested and suggestions.
+Once version 1.5.0 is done and has been tested, the master branch will be updated.
+I appologize for my mess, I should have known better.
 
-### Untested, but should work in:
- - [CS:S] Counter-Strike:Source
- - [HL2:DM] Half-Life 2:DeathMatch
- - [GMOD] Garry's Mod
+Just so it's said, version 1.5.0 in the master branch **IS** stable and won't cause problems, but a new update will come with the same version number, so that may be confusing.
 
-## HEADS-UP:
-Version 1.2.0 & 1.3.0 changed where detection logs are stored!\
-Detections are **NO LONGER** stored in {gamefolder}/lilac.log\
-Detections are **NOW STORED** here: {gamefolder}/addons/sourcemod/logs/lilac.log\
-\
-Configuration files have also changed location, but won't break if you are using the old location.\
-If your config file is in cfg/lilac_config.cfg, it will still read that file and work fine.\
-If you are just installing Lilac or wanna use the new config location, it is at **cfg/sourcemod/lilac_config.cfg**
+### Current developmental stuff:
+1. *"MaterialAdmin"* was added in version 1.4.0, and should work for everyone.
+2. I've added a new command *"lilac_set_ban_length"*, which lets you set ban lengths for specific cheat features, as Panikajo asked for.
+3. I've added a new ConVar *"lilac_aimbot_autoshoot"* that lets you disable autoshoot detections, as Pandaman09 asked for.
 
-### Credits / Special Thanks to:
- - J_Tanzanite... Yeah I'm crediting myself for writing this AC...
- - foon, for fixing sourcebans++ not working (https://forums.alliedmods.net/showthread.php?p=2689297#post2689297).
- - Rasi, for French translations.
- - Bottiger, for fixing this plugin not working in CS:GO and general criticisms.
- - MAGNAT2645 for suggesting a cleaner method of handling convar changes.
- - Larry/LarryBrains for informing me of false Angle-Cheat detections in L4D2.
 
-### Current languages supported:
- - Norwegian (By me, the translations could be better).
- - French (By Rasi / GreenGuyRasi).
- - English (By me lol duh hue hue hue).
- - Russian (By an awesome person c:).
- - Czech (By an awesome person <3).\
-\
-I do hope to add more languages in the future.\
-But at least you can add or improve on the translations already provided.\
-My friends who did some of the translations were told by me that the translations don't have to be perfect.\
-Just understandable to those who don't speak English too well.
+### Todo:
+1. Aimlock\
+Aimlock detections have been a problem for some server owners now, somehow...\
+I'm not sure what causes the issues for others, as I've never had them.\
+That said, I **"""""FIXED"""""** the issue by nerfing Aimlock detections to the abyss and byond...\
+Meaning I never actually solved the underlying problem, only made it less sensitive to actual aimlocking...\
+So yeah, I should update Aimlock to be more sensitive again and actually look into why some people in CS:GO are having problems.
 
-### Optional:
- - Sourcebans++
- - MaterialAdmin
+2. Left 4 Dead (1) Support\
+Currently in version 1.5.0, L4D is supported, but the only confirmation I've had that it works is from one server owner.\
+Because of this, and because of the next problem I'm about to list, L4D support is not official as of now.
+
+3. NoLerp\
+Oddly enough, two server owners are having issues with NoLerp detections detecting legit players.\
+Sadly, I have not been able to reproduce any false positives at all, and these server owners haven't really responded to my questions regarding their server settings.\
+I suspect the problem lies with the interp settings the server allows... But not sure.\
+It is something I will look more into.
+
+4. Code cleanup\
+Currently, the code isn't a mess, but some parts are inconsistently formatted.\
+I should go over my code and make it more consistent.
+
+5. SourceTV support\
+I am working on a second plugin that will make use of the forwards Lilac provides, so that SourceTV can automatically start recording when a cheater is detected.\
+The code itself is short and simple, but I haven't tested it much as of late.
