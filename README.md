@@ -1,4 +1,4 @@
-# Little Anti-Cheat
+# Little Anti-Cheat.
 
 Little Anti-Cheat is a free and open source anti-cheat for source games, and runs on SourceMod.\
 It was originally developed for some secret servers I had back in the day.\
