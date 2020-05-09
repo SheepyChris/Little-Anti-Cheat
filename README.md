@@ -50,3 +50,6 @@ I should go over my code and make it more consistent.
 5. SourceTV support\
 I am working on a second plugin that will make use of the forwards Lilac provides, so that SourceTV can automatically start recording when a cheater is detected.\
 The code itself is short and simple, but I haven't tested it much as of late.
+
+6. Auto Update\
+This is something I haven't looked into, but I've been asked twice now to add support for auto updates.
